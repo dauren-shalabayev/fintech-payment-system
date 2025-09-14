@@ -12,7 +12,14 @@ func main() {
 	})
 
 	// Define a new route
-	AutoHandlers(app.Group("/auth"), db)
+	AuthHandlers(app.Group("/auth"), db)
+	Download(app.Group("/download"), db)
+
+	protected := app.Use(AuthMiddleware(db))
+
+	BookHandlers(protected.Group("/book"), db)
+
+	//download csv
 
 	//Create a new route
 	app.Listen(":3000")

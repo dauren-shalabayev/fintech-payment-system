@@ -1,0 +1,1 @@
+2025/09/14 22:22:48.437883 app.go:529: [Warn] Config.ETag is deprecated since v2.0.6, please use 'middleware/etag'.
